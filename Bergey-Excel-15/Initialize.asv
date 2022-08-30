@@ -59,7 +59,7 @@ kV = 0.06/0.44;
 dbV = 0.02;
 
 %%%%%%%%%%%%%%%%%% Grid Parameters %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Vnom = 240; %V, RMS ph-ph
+Vnom = 24; %V, RMS ph-ph
 fnom = 60; %Hz
 
 %%%%%%%%%%%% Simulation time parameters %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
