@@ -27,7 +27,7 @@ R=0.001;                    %%% resistance of capacitor CL (Ohms)
 
 %%%%%%%%%%%% Values for Load %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 RL=27.8;                    %%% RL (Ohms) 
-%Vdc_nom = 625;              %%% nominal DC voltage (V)
+Vdc_nom = 490;              %%% nominal DC voltage (V)
 
 %%%%%%%%%%%% Wind turbine nominal power output %%%%%%%%%%%%%%%%%%%%%%%%%%%
 Prated = 14170;             %%% W
