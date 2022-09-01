@@ -33,6 +33,9 @@ Vdc_nom = 490;              %%% nominal DC voltage (V)
 Prated = 14170;             %%% W
 Qrated = 19000;             %%% Var  
 
+%%%%%%%%%%%%%%%%%% Windspeed cutin %%%%%%%%%%%%%
+Ucutin = 4.5;               %%% m/s
+
 %%%%%%%%%%%% CP calculations %%%%%%%%%%%%%%%%%%%%%%%%%
 % Import the data from Excel for a Cp lookup table
 cp_data = xlsread('WS_RPM_source.xlsx','Sheet1');
