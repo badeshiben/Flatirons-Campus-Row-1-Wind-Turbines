@@ -2,39 +2,45 @@
 % clc
 % clear all
 %%%%%%%%%%% Test of PMSG and wn nominal calculation %%%%%%%%%%%%%%%%%%%%
-P1=20348.62314*.9;
-Pm_rated=15074.71602;       %%% Rated mechanical power
-N=140;                      %%% Max rotor speed, RPM
-f=16*N/(60);                %%% Max rotor speed, rad/s
-wn=(2*pi*N/60);             %%% Max wn
-Tm=-Pm_rated/(wn);          %%% Rated mechanical torque
-RS=.51;                     %%% Stator resistance
-LS=12.8e-3;                 %%% Stator inductance
+P1          = 20348.62314*.9;
+Pm_rated    = 15074.71602;     %%% Rated mechanical power (W)
+N           = 140;                      %%% Max rotor speed (RPM)
+f           = 16*N/(60);                %%% Max rotor speed (Hz)
+wn          = (2*pi*N/60);             %%% Max rotor speed (rad/s)
+Tm          = -Pm_rated/(wn);          %%% Rated mechanical torque (Nm)
+RS          = .51;                     %%% Stator resistance (Ohm)
+LS          = 12.8e-3;                 %%% Stator inductance (H)                                                                   
 
 %%%%%%%%%%%% Values for Passive Rectifier %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Cs=Inf;                     %%% Snubber capacitance Cs (F)
-Rs=1e6;                     %%% Snubber resistance Rs (Ohms)
-Ron=1e-2;                   %%% Ron (Ohms) 
-Vf=0.6;                     %%% Forward voltage Vf (V)
+Cs          = Inf;                     %%% Snubber capacitance (F)
+Rs          = 1e6;                     %%% Snubber resistance (Ohms)
+Ron         = 1e-2;                   %%% Ron (Ohms) 
+Vf          = 0.6;                     %%% Forward voltage (V)
 
-%%%%%%%%%%%% Values for Load Capacitor with losses after rectifier %%%%%%%
-CL=2200e-6;                 %%% Capacitance on Load capacitor (F)
-RCL=.00084;                 %%% resistance of capacitor CL (Ohms)
+%%%%%%%%%%%% Values for Power Correction Capacitor right of rectifier %%%
+Cpc         = 2.2e-3;                  %%% F
+RCpc        = 0.84e-3;                %%% Ohms
 
-%%%%%%%%%%%% Values for Capacitors with losses Before Rectifier %%%%%%%%%%
-C=55e-6;                    %%% Capacitance on Load capacitor (F)  
-R=0.001;                    %%% resistance of capacitor CL (Ohms)
+%%%%%%%%%%%% Values for Phase Filters left of rectifier %%%%%%%%%%
+C3p         = 55e-6;                    %%% F  
+R3p         = 0.001;                    %%% Ohms
 
-%%%%%%%%%%%% Values for Load %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-RL=27.8;                    %%% RL (Ohms) 
-Vdc_nom = 490;              %%% nominal DC voltage (V)
+%%%%%%%%%%%% Values for RC filter left of voltage source %%%%%%%%%%
+Rdc         = 6;                    %%% Ohms
+Cdc         = 10e-3;                %%% F
+
+%%%%%%%%%%%% Values for DC Load (can replace voltage source and RC filter %%% 
+RL          = 27.8;                    %%% Ohms 
+
+%%%%%%%%%%%% Nominal DC voltage, yields rated power at rated wind speed %%
+Vdc_nom     = 490;              %%% V
 
 %%%%%%%%%%%% Wind turbine nominal power output %%%%%%%%%%%%%%%%%%%%%%%%%%%
-Prated = 14170;             %%% W
-Qrated = 19000;             %%% Var  
+Prated      = 14170;             %%% W
+Qrated      = 19000;             %%% Var  
 
 %%%%%%%%%%%%%%%%%% Windspeed cutin %%%%%%%%%%%%%
-Ucutin = 4.5;               %%% m/s
+Ucutin      = 4.5;               %%% m/s
 
 %%%%%%%%%%%% CP calculations %%%%%%%%%%%%%%%%%%%%%%%%%
 % Import the data from Excel for a Cp lookup table
@@ -56,15 +62,15 @@ Vdc_set = Vdc_data(2:end,3)';
 P = Vdc_data(2:end,4)';
 
 %%%%%%%%%%%%%%%%%% APC droop parameters. IEEE 1547-2018 defaults %%%%%%%%%
-kf=0.05;         %For voltage block case 1
-dbf=.02; 
-kV = 0.06/0.44;
-dbV = 0.02;
+kf          = 0.05;                %%% frequency droop (1/pu)
+dbf         = 0.02;                %%% frequency deadband, (Hz)
+kV          = 0.06/0.44;         %%% Voltage droop (1/pu)
+dbV         = 0.02;             %%% Voltage deadband (pu)
 
 %%%%%%%%%%%%%%%%%% Grid Parameters %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Vnom = 240; %V, RMS ph-ph
-fnom = 60; %Hz
+Vnom        = 240;             %%% V, RMS ph-ph
+fnom        = 60;              %%% Hz
 
 %%%%%%%%%%%% Simulation time parameters %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Ts =20e-6;  
+Ts          = 20e-6;              %%% s
 
