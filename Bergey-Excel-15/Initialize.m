@@ -2,14 +2,14 @@
 % clc
 % clear all
 %%%%%%%%%%% Test of PMSG and wn nominal calculation %%%%%%%%%%%%%%%%%%%%
-P1          = 20348.62314*.9;
-Pm_rated    = 15074.71602;     %%% Rated mechanical power (W)
+% P1          = 20348.62314*.9;
+% Pm_rated    = 15074.71602;              %%% Rated mechanical power (W)
 N           = 140;                      %%% Max rotor speed (RPM)
-f           = 16*N/(60);                %%% Max rotor speed (Hz)
+% f           = 16*N/(60);                %%% Max rotor speed (Hz)
 wn          = (2*pi*N/60);             %%% Max rotor speed (rad/s)
-Tm          = -Pm_rated/(wn);          %%% Rated mechanical torque (Nm)
-RS          = .51;                     %%% Stator resistance (Ohm)
-LS          = 12.8e-3;                 %%% Stator inductance (H)                                                                   
+% Tm          = -Pm_rated/(wn);          %%% Rated mechanical torque (Nm)
+% RS          = .51;                     %%% Stator resistance (Ohm)
+% LS          = 12.8e-3;                 %%% Stator inductance (H)                                                                   
 
 %%%%%%%%%%%% Values for Passive Rectifier %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Cs          = Inf;                     %%% Snubber capacitance (F)
@@ -30,7 +30,7 @@ Rdc         = 6;                    %%% Ohms
 Cdc         = 10e-3;                %%% F
 
 %%%%%%%%%%%% Values for DC Load (can replace voltage source and RC filter %%% 
-RL          = 27.8;                    %%% Ohms 
+%RL          = 27.8;                    %%% Ohms 
 
 %%%%%%%%%%%% Nominal DC voltage, yields rated power at rated wind speed %%
 Vdc_nom     = 490;              %%% V
