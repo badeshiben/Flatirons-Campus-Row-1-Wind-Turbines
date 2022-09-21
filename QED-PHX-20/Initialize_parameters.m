@@ -3,7 +3,7 @@
 % clear all
 %%%%%%%%%%% Test of PMSG and wn nominal calculation %%%%%%%%%%%%%%%%%%%%
 P1=20000*1; 
-Pm_rated=20000;       %%% Rated mechanical power
+Pm_rated=32000;       %%% Rated mechanical power Calculate by P = 1/2*rho*A*Cpmax*Urated^3
 N=90;                      %%% Max rotor speed, RPM
 f=18*N/(60);                %%% Max rotor speed (Hz)
 wn=(2*pi*N/60);             %%%Max rotor speed (rad/s)
